@@ -39,8 +39,30 @@ public class EmployeeController {
     }
 
     @GetMapping("/all")
-    public Map<String,Employee> getAll() {
-        return employeeService.getAll();
+    public Map<String,Employee> getAll(@RequestParam("id") int id) {
+        return employeeService.getAll(id);
+    }
+    @GetMapping("/all-by-dep")
+    public Map<String,Employee> getAllByDep() {
+        return employeeService.getAllByDep();
+    }
+
+
+
+    @GetMapping("/min-salary")
+    public Employee minSalary(@RequestParam("id") int id ) {
+        return employeeService.minSalary(id);
+
+    }
+    @GetMapping("/max-salary")
+    public Employee maxSalary(@RequestParam("id") int id ) {
+        return employeeService.maxSalary(id);
+
+    }
+    @GetMapping("/add2")
+    public Employee addEmployee(@RequestParam("name") String name,@RequestParam("id") int id,@RequestParam("salary") int salary) {
+        return employeeService.addEmployee2(name,id,salary);
+
     }
 
 }
