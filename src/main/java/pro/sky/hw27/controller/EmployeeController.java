@@ -32,10 +32,5 @@ public class EmployeeController {
 
     }
 
-    @GetMapping("/add")
-    public Employee addEmployee(@RequestParam("name") String name,@RequestParam("id") int id,@RequestParam("salary") int salary) {
-        return employeeService.addEmployee(name,id,salary);
-
-    }
 
 }
