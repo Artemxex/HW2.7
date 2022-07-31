@@ -1,4 +1,4 @@
-package pro.sky.HW27;
+package pro.sky.hw27;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

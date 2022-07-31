@@ -1,4 +1,4 @@
-package pro.sky.HW27;
+package pro.sky.hw27;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

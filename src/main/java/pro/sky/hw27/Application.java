@@ -1,4 +1,4 @@
-package pro.sky.HW27;
+package pro.sky.hw27;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
