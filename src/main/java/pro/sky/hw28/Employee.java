@@ -7,8 +7,10 @@ import java.util.Objects;
 public class Employee {
     public int employeeDepartment;
     public int employeeSalary;
-    @JsonProperty("FI")
+    @JsonProperty("I")
     private String employeeName;
+    @JsonProperty("F")
+    private String employeeSurName;
 
     public Employee(String employeeName) {
         this.employeeName = employeeName;
@@ -18,10 +20,11 @@ public class Employee {
         return employeeDepartment;
     }
 
-    public Employee(String employeeName, int employeeDepartment, int employeeSalary) {
+    public Employee(String employeeName, String employeeSurName, int employeeDepartment, int employeeSalary) {
         this.employeeDepartment = employeeDepartment;
         this.employeeSalary = employeeSalary;
         this.employeeName = employeeName;
+        this.employeeSurName = employeeSurName;
     }
 
 

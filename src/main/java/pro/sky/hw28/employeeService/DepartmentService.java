@@ -1,5 +1,6 @@
 package pro.sky.hw28.employeeService;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import pro.sky.hw28.Employee;
 import pro.sky.hw28.exeption.EmployeeAlreadyAddedExeption;
@@ -34,15 +35,16 @@ public class DepartmentService {
         }).orElseThrow(() -> new EmployeeNotFoundExeption());
 
     }
-    public Employee addEmployee(String name, int id, int salary) {
-        Employee employee = new Employee(name, id, salary);
-        if (employees.containsKey(name)){
+    public Employee addEmployee(String name, String surname, int id, int salary) {
+        Employee employee = new Employee(name, surname, id, salary);
+        if (employees.containsKey(name+surname)){
             throw new EmployeeAlreadyAddedExeption();
         }
         else{
-            employees.put(name, employee);
+            employees.put(name+surname, employee);
             return employee;
         }
 
     }
+
 }

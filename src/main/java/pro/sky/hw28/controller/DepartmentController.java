@@ -1,11 +1,13 @@
 package pro.sky.hw28.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.hw28.Employee;
 import pro.sky.hw28.employeeService.DepartmentService;
+import pro.sky.hw28.exeption.EmployeeAlreadyAddedExeption;
 
 import java.util.List;
 import java.util.Map;
@@ -19,9 +21,13 @@ public class DepartmentController {
         this.departmentService = departmentService;
     }
     @GetMapping("/add")
-    public Employee addEmployee(@RequestParam("name") String name,@RequestParam("id") int id,@RequestParam("salary") int salary) {
-        return departmentService.addEmployee(name,id,salary);
-
+    public Employee addEmployee(@RequestParam("name") String name,@RequestParam("surname") String surname,
+                                @RequestParam("id") int id,@RequestParam("salary") int salary) {
+        if ((StringUtils.containsAny(name, '1','2', '3', '4', '5', '6', '7', '8', '9', '0'))||
+                ((StringUtils.containsAny(surname, '1','2', '3', '4', '5', '6', '7', '8', '9', '0')))) {
+            throw new EmployeeAlreadyAddedExeption();
+        }
+        return departmentService.addEmployee(StringUtils.capitalize(name),StringUtils.capitalize(surname), id,salary);
     }
 
     @GetMapping("/all-by-dep")
